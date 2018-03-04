@@ -16,3 +16,7 @@ Some simple improvements that could be made:
 * Nicely printing cart contents (`toString` method to the `cartItems` type),
 * Having an `applyOffers` function for each fruit, so they don't have to be hardcoded in the `Fruit` object,
 * Applying offers while calculating the total cost (decided against here in favour of readibility, and to follow the implementation steps for this test).
+
+To run this via the command line, use sbt, e.g.:
+`sbt "runMain shopping.Checkout orange orange apple"`
+This will always apply offers.
