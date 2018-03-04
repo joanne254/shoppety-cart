@@ -7,7 +7,7 @@ class Cart(items: List[String]) {
   private def getFruit(itemName: String): Fruit = {
     Fruit.types.find(_.name.toLowerCase == itemName.toLowerCase) match {
       case Some(fruit) => fruit
-      case None => throw new IllegalArgumentException(s"$itemName isn't a fruit sold here.")
+      case None => throw new IllegalArgumentException(s"Unknown fruit: $itemName")
     }
   }
 
@@ -20,7 +20,7 @@ class Cart(items: List[String]) {
   private def getItemPrice(itemName: String): Price =
     getFruit(itemName).price
 
-  def checkout(withOffers: Boolean=true): Price = {
+  def checkout(withOffers: Boolean = true): Price = {
     val totalCost = items.aggregate(0d)(_ + getItemPrice(_), _+_)
     if (!withOffers)
       return totalCost

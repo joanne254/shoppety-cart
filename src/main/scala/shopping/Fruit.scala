@@ -16,7 +16,7 @@ object Fruit {
 trait Fruit
 {
   val name: String
-  val price: Double
+  val price: Price
 }
 
 object Orange
